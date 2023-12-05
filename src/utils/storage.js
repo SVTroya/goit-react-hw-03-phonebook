@@ -24,8 +24,8 @@ function remove(key) {
 }
 
 export default {
+  KEY_CONTACTS,
   save,
   load,
   remove,
-  KEY_CONTACTS,
 }

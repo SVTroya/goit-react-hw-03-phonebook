@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { ContactsList } from './App.styled';
 import { NewContactForm } from './NewContactForm/NewContactForm';
 import { ListOfContacts } from './ListOfContacts/ListOfContacts';
-import Storage from '../utils/storage'
+import Storage from '../utils/storage.js'
 
 export class App extends Component {
 
