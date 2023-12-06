@@ -16,14 +16,14 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (JSON.stringify(prevState.contacts) !== JSON.stringify(this.state.contacts)) {
+    if (prevState.contacts.length !== this.state.contacts.length) {
       save(KEY_CONTACTS, this.state.contacts)
     }
   }
 
   onSubmitForm = (id, value, phone) => {
     this.setState(prevState => {
-      return { contacts: [...prevState.contacts, { id: id, name: value, phone: phone }] };
+      return { contacts: [...prevState.contacts, { id, name: value, phone }] };
     });
   };
 
