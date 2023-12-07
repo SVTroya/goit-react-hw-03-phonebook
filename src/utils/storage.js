@@ -1,6 +1,6 @@
-export const KEY_CONTACTS = 'contacts';
+const KEY_CONTACTS = 'contacts';
 
-export function save(key, value){
+function save(key, value){
   try {
     const serializedState = JSON.stringify(value)
     localStorage.setItem(key, serializedState)
@@ -9,7 +9,7 @@ export function save(key, value){
   }
 }
 
-export function load(key) {
+function load(key) {
   try {
     const serializedState = localStorage.getItem(key)
     return serializedState === null ? undefined : JSON.parse(serializedState)
@@ -19,6 +19,13 @@ export function load(key) {
   }
 }
 
-export function remove(key) {
+function remove(key) {
   localStorage.removeItem(key)
+}
+
+export default {
+  KEY_CONTACTS,
+  load,
+  save,
+  remove
 }
