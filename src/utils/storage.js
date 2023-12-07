@@ -1,31 +1,33 @@
 const KEY_CONTACTS = 'contacts';
 
-function save(key, value){
+function save(key, value) {
   try {
-    const serializedState = JSON.stringify(value)
-    localStorage.setItem(key, serializedState)
+    const serializedState = JSON.stringify(value);
+    localStorage.setItem(key, serializedState);
   } catch (error) {
-    console.error("Set state error: ", error.message)
+    console.error('Set state error: ', error.message);
   }
 }
 
 function load(key) {
   try {
-    const serializedState = localStorage.getItem(key)
-    return serializedState === null ? undefined : JSON.parse(serializedState)
+    const serializedState = localStorage.getItem(key);
+    return serializedState === null ? undefined : JSON.parse(serializedState);
   } catch (error) {
-    console.error("Get state error: ", error.message)
-    return null
+    console.error('Get state error: ', error.message);
+    return null;
   }
 }
 
 function remove(key) {
-  localStorage.removeItem(key)
+  localStorage.removeItem(key);
 }
 
-export default {
+const storage = {
   KEY_CONTACTS,
   load,
   save,
-  remove
-}
+  remove,
+};
+
+export default storage;

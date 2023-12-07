@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { ContactsList } from './App.styled';
 import { NewContactForm } from './NewContactForm/NewContactForm';
 import { ListOfContacts } from './ListOfContacts/ListOfContacts';
-import Storage from '../utils/storage';
+import storage from '../utils/storage.js';
 
 export class App extends Component {
 
@@ -11,13 +11,13 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    const storageValue = Storage.load(Storage.KEY_CONTACTS)
-    this.setState({contacts: storageValue || []})
+    const storageValue = storage.load(storage.KEY_CONTACTS);
+    this.setState({ contacts: storageValue || [] });
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevState.contacts.length !== this.state.contacts.length) {
-      Storage.save(Storage.KEY_CONTACTS, this.state.contacts)
+      storage.save(storage.KEY_CONTACTS, this.state.contacts);
     }
   }
 
